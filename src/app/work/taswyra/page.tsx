@@ -492,7 +492,7 @@ export default function TaswyraPage() {
             <div className="grid grid-cols-1 gap-5 md:gap-0 md:grid-cols-[1.05fr_0.98fr] md:items-stretch">
               <div className="flex items-center justify-center overflow-hidden">
   <ProjectImage
-    src="/images/taswyra/home.png"
+    src="/images/taswyra/home.webp"
     alt="Taswyra homepage interface"
     natural
     className="w-full md:w-[87.5%]"

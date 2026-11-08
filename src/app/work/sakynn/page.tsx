@@ -656,7 +656,7 @@ export default function SakynnPage() {
        <div className="grid grid-cols-1 gap-5 md:grid-cols-[1.05fr_0.98fr] md:items-stretch">
   <div className="flex h-full items-center justify-center">
     <ProjectImage
-      src="/images/sakynn/home.png"
+      src="/images/sakynn/home.webp"
       alt="Property seeker home screen"
       natural
       backgroundClassName="bg-transparent"
@@ -698,7 +698,7 @@ export default function SakynnPage() {
   {/* Left column: slightly bigger dashboard */}
   <div className="flex items-center">
     <ProjectImage
-      src="/images/sakynn/owner-dashboard.png"
+      src="/images/sakynn/owner-dashboard.webp"
       alt={t.ownerDashboard}
       natural
       backgroundClassName="bg-transparent"
@@ -710,7 +710,7 @@ export default function SakynnPage() {
   {/* Right column: listings above messages */}
   <div className="flex flex-col gap-3">
     <ProjectImage
-      src="/images/sakynn/owner-listings.png"
+      src="/images/sakynn/owner-listings.webp"
       alt={t.listingManagement}
       natural
       backgroundClassName="bg-transparent"

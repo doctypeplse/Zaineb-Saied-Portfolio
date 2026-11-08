@@ -568,14 +568,14 @@ export default function MafrahPage() {
   {/* Details and List: right column */}
   <div className="flex flex-col gap-4">
     <ProjectImage
-      src="/images/mafrah/details.png"
+      src="/images/mafrah/details.webp"
       alt="Venue details screen"
       natural
       backgroundClassName="bg-transparent"
     />
 
     <ProjectImage
-      src="/images/mafrah/list.png"
+      src="/images/mafrah/list.webp"
       alt="Venue list screen"
       natural
       backgroundClassName="bg-transparent"
