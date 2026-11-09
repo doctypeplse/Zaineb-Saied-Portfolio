@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zaineb Saied | UI/UX Designer",
+  title: "Zaineb Saied",
   description: "UI/UX Designer portfolio of Zaineb Saied.",
 };
 
