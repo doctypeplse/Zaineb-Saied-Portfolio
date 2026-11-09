@@ -76,8 +76,8 @@ export default function Hero() {
     z-0 w-full -translate-x-1/2
     whitespace-nowrap px-2
     text-center
-    text-[clamp(25px,8vw,134px)]
-    md:text-[clamp(38px,9.3vw,134px)]
+   text-[clamp(25px,7.8vw,132px)]
+md:text-[clamp(38px,9.1vw,132px)]
     font-semibold tracking-[-0.035em]
     text-white
   "

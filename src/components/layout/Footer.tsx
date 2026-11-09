@@ -5,14 +5,14 @@ import { useLanguage } from "@/context/LanguageProvider";
 
 const socialLinks = [
   {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/zainebsaied-a3a344316/",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M5.2 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3.4v11H3.5V9Zm5.5 0h3.3v1.5h.1A3.6 3.6 0 0 1 15.7 8c3.5 0 4.2 2.2 4.2 5.1V20h-3.5v-6.1c0-1.5 0-3.3-2-3.3s-2.3 1.6-2.3 3.2V20H9V9Z" />
-      </svg>
-    ),
-  },
+  name: "LinkedIn",
+  href: "https://www.linkedin.com/in/zainebsaied-a3a344316/",
+  icon: (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M5.2 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3.4v11H3.5V9Zm5.5 0h3.3v1.5h.1A3.6 3.6 0 0 1 15.7 8c3.5 0 4.2 2.2 4.2 5.1V20h-3.5v-6.1c0-1.5 0-3.3-2-3.3s-2.3 1.6-2.3 3.2V20H9V9Z" />
+    </svg>
+  ),
+},
   {
     name: "Behance",
     href: "https://www.behance.net/zainebsaied",
