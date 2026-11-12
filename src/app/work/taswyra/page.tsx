@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -133,6 +134,7 @@ function ProjectImage({
   imageClassName = "object-contain",
   backgroundClassName = "bg-[#E9E9E9]",
   natural = false,
+  mobileZoom = false,
 }: {
   src: string;
   alt: string;
@@ -140,6 +142,7 @@ function ProjectImage({
   imageClassName?: string;
   backgroundClassName?: string;
   natural?: boolean;
+  mobileZoom?: boolean;
 }) {
   if (natural) {
     return (
@@ -165,7 +168,9 @@ function ProjectImage({
         fill
         sizes="(max-width: 768px) 100vw, 1200px"
         unoptimized
-        className={`${imageClassName} rounded-xl`}
+        className={`${imageClassName} ${
+          mobileZoom ? "scale-[1.6] md:scale-100" : ""
+        } rounded-xl`}
       />
     </div>
   );
@@ -238,52 +243,53 @@ export default function TaswyraPage() {
             ))}
           </div>
 
-         {/* Language + Contact */}
-<div className="flex items-center gap-5">
+          {/* Language switcher */}
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-1 rounded-full border border-[#E8E8E8] bg-transparent p-1">
+              <button
+                onClick={() => setLanguage("en")}
+                aria-pressed={language === "en"}
+                className={`
+                  rounded-full border px-2.5 py-1 text-[11px] font-medium
+                  transition-all duration-500
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
+                  ${
+                    language === "en"
+                      ? "border-[#242424] bg-[#EAEAEA] text-[#242424]"
+                      : "border-transparent bg-transparent text-[#999999] hover:text-[#242424]"
+                  }
+                `}
+              >
+                EN
+              </button>
 
-  {/* Language switcher */}
-  <div className="flex items-center gap-1 rounded-full border border-[#E8E8E8] bg-transparent p-1">
-    <button
-      onClick={() => setLanguage("en")}
-      aria-pressed={language === "en"}
-      className={`
-        rounded-full border px-2.5 py-1 text-[11px] font-medium
-        transition-all duration-500
-        ease-[cubic-bezier(0.22,1,0.36,1)]
-        ${
-          language === "en"
-            ? "border-[#242424] bg-[#EAEAEA] text-[#242424]"
-            : "border-transparent bg-transparent text-[#999999] hover:text-[#242424]"
-        }
-      `}
-    >
-      EN
-    </button>
-
-    <button
-      onClick={() => setLanguage("fr")}
-      aria-pressed={language === "fr"}
-      className={`
-        rounded-full border px-2.5 py-1 text-[11px] font-medium
-        transition-all duration-500
-        ease-[cubic-bezier(0.22,1,0.36,1)]
-        ${
-          language === "fr"
-            ? "border-[#242424] bg-[#EAEAEA] text-[#242424]"
-            : "border-transparent bg-transparent text-[#999999] hover:text-[#242424]"
-        }
-      `}
-    >
-      FR
-    </button>
-  </div>
-
-</div>
+              <button
+                onClick={() => setLanguage("fr")}
+                aria-pressed={language === "fr"}
+                className={`
+                  rounded-full border px-2.5 py-1 text-[11px] font-medium
+                  transition-all duration-500
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
+                  ${
+                    language === "fr"
+                      ? "border-[#242424] bg-[#EAEAEA] text-[#242424]"
+                      : "border-transparent bg-transparent text-[#999999] hover:text-[#242424]"
+                  }
+                `}
+              >
+                FR
+              </button>
+            </div>
+          </div>
         </nav>
       </header>
 
       <div className="mx-auto max-w-[1440px] px-6 md:px-12">
-        <section id="overview" className="scroll-mt-28 pb-20 pt-24 md:pb-28 md:pt-28">
+        {/* Overview */}
+        <section
+          id="overview"
+          className="scroll-mt-28 pb-2 pt-2 md:pb-28 md:pt-28"
+        >
           <div className="grid gap-12 md:grid-cols-[1.25fr_0.75fr] md:items-end">
             <div>
               <h1 className="text-5xl font-medium tracking-[-0.065em] md:text-6xl lg:text-[76px]">
@@ -318,18 +324,22 @@ export default function TaswyraPage() {
             </div>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-6 md:mt-16">
             <ProjectImage
               src="/images/taswyra/hero.png"
               alt={t.mainInterface}
-              className="min-h-[300px] md:min-h-[565px]"
-              imageClassName="object-cover"
+              className="h-[220px] sm:h-[300px] md:h-[565px]"
+              imageClassName="object-contain md:object-cover"
               backgroundClassName="bg-transparent"
             />
           </div>
         </section>
 
-        <section id="challenge" className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28">
+        {/* Challenge */}
+        <section
+          id="challenge"
+          className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28"
+        >
           <div className="grid gap-10 md:grid-cols-[0.7fr_1.3fr]">
             <div>
               <SectionLabel number="01">{t.challengeLabel}</SectionLabel>
@@ -365,7 +375,11 @@ export default function TaswyraPage() {
           </div>
         </section>
 
-        <section id="strategy" className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28">
+        {/* UX Strategy */}
+        <section
+          id="strategy"
+          className="scroll-mt-28 border-t border-[#E3E3E3] pt-20 pb-8 md:py-28"
+        >
           <SectionLabel number="02">{t.sections[2]}</SectionLabel>
 
           <div className="grid gap-10 md:grid-cols-2">
@@ -388,7 +402,10 @@ export default function TaswyraPage() {
 
                 <div className="flex flex-wrap gap-2">
                   {t.seekerSteps.map((step) => (
-                    <span key={step} className="rounded-full border border-[#DCDCDC] px-4 py-2 text-xs text-[#555555]">
+                    <span
+                      key={step}
+                      className="rounded-full border border-[#DCDCDC] px-4 py-2 text-xs text-[#555555]"
+                    >
                       {step}
                     </span>
                   ))}
@@ -403,7 +420,10 @@ export default function TaswyraPage() {
 
                 <div className="flex flex-wrap gap-2">
                   {t.ownerSteps.map((step) => (
-                    <span key={step} className="rounded-full border border-[#DCDCDC] px-4 py-2 text-xs text-[#555555]">
+                    <span
+                      key={step}
+                      className="rounded-full border border-[#DCDCDC] px-4 py-2 text-xs text-[#555555]"
+                    >
                       {step}
                     </span>
                   ))}
@@ -412,17 +432,22 @@ export default function TaswyraPage() {
             </div>
           </div>
 
-          <div className="mt-16">
-            <ProjectImage
-              src="/images/taswyra/user-flow.png"
-              alt={t.flowPlaceholder}
-              className="min-h-[480px] md:min-h-[650px] lg:min-h-[720px]"
-              backgroundClassName="bg-transparent"
-            />
-          </div>
+<div className="-mx-6 mt-0 mb-[-60px] md:mx-0 md:mt-16 md:mb-0 md:-mx-12">
+  <ProjectImage
+    src="/images/taswyra/user-flow.png"
+    alt={t.flowPlaceholder}
+    className="h-[380px] md:h-[650px] lg:h-[720px]"
+    imageClassName="object-contain md:object-cover scale-[1.5] md:scale-100"
+    backgroundClassName="bg-transparent"
+  />
+</div>
         </section>
 
-        <section id="design" className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28">
+        {/* UI Design */}
+        <section
+          id="design"
+          className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28"
+        >
           <SectionLabel number="03">{t.sections[3]}</SectionLabel>
 
           <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
@@ -470,7 +495,11 @@ export default function TaswyraPage() {
           </div>
         </section>
 
-        <section id="product" className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28">
+        {/* Final Product */}
+        <section
+          id="product"
+          className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28"
+        >
           <SectionLabel number="04">{t.sections[4]}</SectionLabel>
 
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
@@ -489,17 +518,17 @@ export default function TaswyraPage() {
               <span className="text-xs text-[#999999]">01 / {t.discover}</span>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 md:gap-0 md:grid-cols-[1.05fr_0.98fr] md:items-stretch">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-[1.05fr_0.98fr] md:items-stretch md:gap-0">
               <div className="flex items-center justify-center overflow-hidden">
-  <ProjectImage
-    src="/images/taswyra/home.webp"
-    alt="Taswyra homepage interface"
-    natural
-    className="w-full md:w-[87.5%]"
-    imageClassName="w-full h-auto object-contain"
-    backgroundClassName="bg-transparent"
-  />
-</div>
+                <ProjectImage
+                  src="/images/taswyra/home.webp"
+                  alt="Taswyra homepage interface"
+                  natural
+                  className="w-full md:w-[87.5%]"
+                  imageClassName="w-full h-auto object-contain"
+                  backgroundClassName="bg-transparent"
+                />
+              </div>
 
               <div className="flex flex-col gap-4">
                 <ProjectImage
@@ -520,7 +549,11 @@ export default function TaswyraPage() {
           </div>
         </section>
 
-        <section id="outcome" className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28">
+        {/* Outcome */}
+        <section
+          id="outcome"
+          className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28"
+        >
           <div className="grid gap-10 md:grid-cols-[0.7fr_1.3fr]">
             <div>
               <SectionLabel number="05">{t.outcomeLabel}</SectionLabel>

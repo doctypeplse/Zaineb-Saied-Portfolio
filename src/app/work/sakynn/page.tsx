@@ -392,10 +392,10 @@ export default function SakynnPage() {
 
         {/* Overview */}
 
-        <section
-          id="overview"
-          className="scroll-mt-28 pb-20 pt-24 md:pb-28 md:pt-28"
-        >
+       <section
+  id="overview"
+  className="scroll-mt-28 pb-2 pt-2 md:pb-28 md:pt-28"
+>
           <div className="grid gap-12 md:grid-cols-[1.25fr_0.75fr] md:items-end">
 
             <div>
@@ -433,12 +433,14 @@ export default function SakynnPage() {
             </div>
           </div>
 
-          <div className="mt-16">
-            <ProjectImage
-              src="/images/sakynn/hero.png"
-              alt={t.mainInterface}
-              className="min-h-[300px] md:min-h-[556px]"
-            />
+          <div className="mt-1 md:mt-16">
+  <ProjectImage
+    src="/images/sakynn/hero.png"
+    alt={t.mainInterface}
+    className="min-h-[220px] md:min-h-[556px]"
+    backgroundClassName="bg-transparent"
+  />
+
           </div>
         </section>
 
@@ -493,9 +495,9 @@ export default function SakynnPage() {
         {/* UX Strategy */}
 
         <section
-          id="strategy"
-          className="scroll-mt-28 border-t border-[#E3E3E3] py-20 md:py-28"
-        >
+  id="strategy"
+  className="scroll-mt-28 border-t border-[#E3E3E3] pt-20 pb-8 md:py-28"
+>
           <SectionLabel number="02">{t.sections[2]}</SectionLabel>
 
           <div className="grid gap-10 md:grid-cols-2">
@@ -555,14 +557,16 @@ export default function SakynnPage() {
 
           {/* User flow */}
 
-          <div className="mt-16">
-            <ProjectImage
-              src="/images/sakynn/user-flow.png"
-              alt={t.flowPlaceholder}
-              className="min-h-[480px] md:min-h-[650px] lg:min-h-[720px]"
-              backgroundClassName="bg-transparent"
-            />
-          </div>
+
+<div className="-mx-6 mt-0 mb-[-60px] md:mx-0 md:mt-16 md:mb-0 md:-mx-12">
+  <ProjectImage
+    src="/images/sakynn/user-flow.png"
+    alt={t.flowPlaceholder}
+    className="h-[380px] md:h-[650px] lg:h-[720px]"
+    imageClassName="object-contain md:object-cover scale-[1.5] md:scale-100"
+    backgroundClassName="bg-transparent"
+  />
+</div>
         </section>
 
         {/* UI Design */}

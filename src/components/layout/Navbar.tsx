@@ -1,63 +1,54 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageProvider";
+import { usePathname } from "next/navigation";
 
 const navItems = [
-  { key: "home", href: "/", hash: "top" },
+  { key: "home", href: "/", hash: "home" },
   { key: "work", href: "/", hash: "work" },
   { key: "about", href: "/about", hash: "" },
 ] as const;
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
-  const pathname = usePathname();
 
-  const [scrolledPastHero, setScrolledPastHero] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (pathname !== "/") {
-        setScrolledPastHero(true);
-        return;
-      }
 
-      const projectsSection = document.getElementById("work");
+const pathname = usePathname();
+const [mobileScrolled, setMobileScrolled] = useState(false);
 
-      if (!projectsSection) return;
+useEffect(() => {
+  const handleScroll = () => {
+    setMobileScrolled(
+      window.innerWidth < 768 && window.scrollY > 10
+    );
+  };
 
-      const projectsTop = projectsSection.getBoundingClientRect().top;
+  handleScroll();
 
-      setScrolledPastHero(projectsTop <= 120);
-    };
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("resize", handleScroll);
 
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    window.addEventListener("resize", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [pathname]);
-
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleScroll);
+  };
+}, []);
+  
   return (
-    <header
-      className="
-        fixed top-0 left-0 z-50 w-full
-        transition-colors duration-75 ease-out
-      "
-      style={{
-        backgroundColor: scrolledPastHero
-          ? "#F1F1F1"
-          : "transparent",
-      }}
-    >
+<header
+  className={`
+    fixed top-0 left-0 z-50 w-full
+    transition-all duration-300
+    ${
+      pathname === "/about"
+        ? "bg-[#F1F1F1]"
+        : mobileScrolled
+          ? "bg-[#F1F1F1]/95 backdrop-blur-md"
+          : "bg-transparent"
+    }
+  `}
+>
       <nav className="flex w-full flex-row items-center justify-between px-6 py-5 md:px-12 lg:px-16">
 
         {/* Navigation links */}

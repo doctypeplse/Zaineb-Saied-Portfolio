@@ -55,7 +55,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#F1F1F1]">
+    
+      <footer className="relative z-20 isolate w-full bg-[#F1F1F1] md:static md:z-auto md:isolate-auto">
+
       <div className="mx-2 h-px bg-[#E8E8E8] md:mx-4" />
 
       <div className="w-full px-6 pt-[50px] pb-5 md:px-12 lg:px-16">
